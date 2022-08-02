@@ -1,20 +1,24 @@
-import './index.css';
-
-import Body from './layout/body';
-import Footer from './layout/footer';
-import Header from './layout/header';
-import SidleBar from './layout/sidlerBar';
-
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./layout/Header";
+import Home from "./layout/Home";
+import Sidebar from "./layout/SideBar";
+import Form from "./components/Form";
 
 function App() {
   return (
-    <div>
-    <Header/>
-    <SidleBar/>
-    <div className='layout'>
-    <Body/>
-    </div>
-    <Footer/>
+    <div className="App">
+      <Header />
+
+      <div className="container">
+        <Sidebar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/add" element={<Form />} />
+          </Routes>
+        </main>
+      </div>
     </div>
   );
 }
